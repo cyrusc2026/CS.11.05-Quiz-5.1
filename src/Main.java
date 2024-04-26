@@ -8,8 +8,14 @@ public class Main {
      * zip(myArray1, myArray2) → {1,3,5,7,9,2,4,6,8,10,12,14,16}
      */
     public static int[] combine(int[] array1, int[] array2) {
-
-        return null;
+        int[] answer = new int[array1.length+array2.length];
+        System.arraycopy(array1, 0, answer, 0, array1.length);
+        int c = 0;
+        for (int j = array1.length; j < answer.length; j++){
+            answer[j] = array2[c];
+            c++;
+        }
+        return answer;
 
     }
 
@@ -21,9 +27,22 @@ public class Main {
      * zip(myArray1, myArray2) → {1,2,3,4,5,6,7,8,9,10}
      */
     public static int[] zip(int[] array1, int[] array2) {
-
-        return null;
-
+        int[] answer = new int[array1.length+array2.length];
+        int arrayone = 0;
+        int arraytwo = 0;
+        for (int i = 0; i < answer.length;){
+            if (arrayone <= array1.length){
+                answer[i] = array1[arrayone];
+                arrayone++;
+                i++;
+            }
+            if (arrayone <= array2.length){
+                answer[i] = array2[arraytwo];
+                arraytwo++;
+                i++;
+            }
+        }
+        return answer;
     }
 
     /**
@@ -34,9 +53,11 @@ public class Main {
      * product(myArray1, myArray2) → {2,12,30,56,90}
      */
     public static int[] product(int[] array1, int[] array2) {
-
-        return null;
-
+        int[] answer = new int[array1.length];
+        for (int i = 0; i < answer.length; i++){
+            answer[i] = array1[i]*array2[i];
+            }
+        return answer;
     }
 
     /**
@@ -56,14 +77,20 @@ public class Main {
      * capitalCount(words) → {1, 2, 2, 0}
      */
     public static int[] capitalCount(String[] words) {
-
-        return null;
+        int[] answer = new int[words.length];
+        for (int i = 0; i < answer.length; i++){
+           answer[i] = countCapitalLetters(words[i]);
+        }
+        return answer;
 
     }
 
     public static int countCapitalLetters(String word) {
-
-        return 0;
+        int count = 0;
+        for (int i = 0; i < word.length(); i++){
+            if ((int) word.charAt(i) <= 90 && (int) word.charAt(i) >= 65) count++;
+        }
+        return count;
 
     }
 
